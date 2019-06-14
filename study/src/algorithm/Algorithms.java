@@ -23,86 +23,7 @@ public class Algorithms {
 	private static final int LIMIT = 60;
 
 	public static void main(String[] args) {
-
-	}
-
-	/*
-	 * Chemicals array: ['Amazon', 'Microsoft', 'Google']
-	 * 
-	 * Symbols: ['I', 'Am','cro', 'Na', 'le', 'abc']
-	 * 
-	 * Output: [Am]azon, Mi[cro]soft, Goog[le]
-	 */
-	public static String symbolAndChemical() {
-		String[] strArr = { "Amazon", "Microsoft", "Google", "leeja" };
-		String[] symArr = { "I", "Am", "cro", "Na", "le", "abc", "ja", "ros" };
-
-		StringBuffer builder = new StringBuffer();
-
-		String result = "";
-		for (int i = 0; i < strArr.length; i++) {
-			for (int j = 0; j < symArr.length; j++) {
-				String sym = symArr[j];
-				String str = strArr[i];
-
-				if (str.contains(sym)) {
-					builder.append(str);
-					builder.insert(str.indexOf(sym), "[");
-					builder.insert(str.indexOf(sym) + sym.length() + 1, "]");
-
-					result += builder.toString() + ", ";
-					builder.setLength(0);
-				}
-			}
-		}
-//		result.substring(0, result.length()-3);
-
-		System.out.println(result.substring(0, result.length() - 2));
-		return result.substring(0, result.length() - 2);
-
-	}
-
-	/**
-	 * 나머지 연산한 값이 원래의 값보다 작을때 로마 값 저장해주고 원래의 값은 나머지연산했던 수로 빼주면서 반복.
-	 */
-	public static void toRoman() {
-		String result = "";
-		int[] decimal = { 1000, 500, 100, 50, 10, 5, 1 };
-		String[] roman = { "M", "D", "C", "L", "X", "V", "I" };
-
-		int number = 1557;
-
-		for (int i = 0; i < decimal.length; i++) {
-			while (number % decimal[i] < number) {
-				result += roman[i];
-				number -= decimal[i];
-			}
-		}
-
-		System.out.println("value : " + result);
-
-	}
-
-	/**
-	 * 첫번째 문자를 찾고 치환하고 첫번째 문자를 제거하기를 반복.
-	 */
-	public static void toInteger() {
-		int result = 0;
-//		int[] decimal = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
-//		String[] roman = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
-
-		int[] decimal = { 1000, 500, 100, 50, 10, 5, 1 };
-		String[] roman = { "M", "D", "C", "L", "X", "V", "I" };
-
-		// Test string, the number 895
-		String romanumber = "MDLVII";
-
-		for (int i = 0; i < decimal.length; i++) {
-			while (romanumber.indexOf(roman[i]) == 0) {
-				result += decimal[i];
-				romanumber = romanumber.substring(roman[i].length());
-			}
-		}
+		
 	}
 
 	public static boolean isSubString(String s1, String s2) {
@@ -217,64 +138,6 @@ public class Algorithms {
 		return n + 1;
 	}
 
-	public static List<List<String>> ana() {
-		List<String> list = new ArrayList<>();
-		String[] array = { "pear", "dormitory", "tinsel", "dirty room", "hamlet", "listen", "amleth", "silnet" };
-
-		if (array == null || array.length == 0) {
-			return new ArrayList<List<String>>();
-		}
-
-		Map<String, List<String>> map = new HashMap<String, List<String>>();
-		for (String s : array) {
-			char[] ca = s.toCharArray();
-
-			Arrays.sort(ca);
-
-			String keyStr = String.valueOf(ca);
-			if (!map.containsKey(keyStr)) {
-				map.put(keyStr, new ArrayList<String>());
-			}
-			map.get(keyStr).add(s);
-			for (String key : map.keySet()) {
-				Collections.sort(map.get(key));
-			}
-		}
-		return new ArrayList<List<String>>(map.values());
-
-//		Arrays.sort(array);
-//
-//		LinkedHashSet<String> result = new LinkedHashSet<String>();
-//
-//		for (int i = 0; i < array.length; i++) {
-//			for (int j = i + 1; j < array.length; j++) {
-//				if (checkAnagram(array[i], array[j])) {
-//					System.out.println(array[i] + " / " + array[j]);
-//					list.add(array[i]);
-//
-//					result.add(array[i]);
-//					result.add(array[j]);
-////					System.out.println(result);
-//					System.out.println(list);
-//				}
-//			}
-//
-//		}
-
-//		System.out.println(list);
-//			int[] nums = { 1, 2, 3, 4, 5, 6, 7, 20, 30 };
-//
-//		HashMap<Integer, Integer> hash = new HashMap<Integer, Integer>();
-//		for (int i = 0; i < nums.length; i++) {
-//			int complement = target - nums[i];
-//			if (hash.containsKey(complement)) {
-//				return new int[] { hash.get(complement), i };
-//			}
-//			hash.put(nums[i], i);
-//
-//		}
-	}
-
 	static List<Integer> oddNumbers(int l, int r) {
 		List<Integer> array = new ArrayList<>();
 		for (int i = l; i <= r; i++) {
@@ -336,28 +199,7 @@ public class Algorithms {
 		System.out.println("L: " + L + ", HIGH : " + HIGH); // 출력
 	}
 
-	// 가장 많이 나타난 수 체크.
-	public static void oftenNumber() {
-		int[] data = { 1, 3, 4, 3, 5 };
-		int mode = 0; // 최빈값이 담길 그릇
-		int[] index = new int[6]; // 0~5까지 : 인덱스의 카운터
-		int max = Integer.MIN_VALUE; // 최대값을 저장하기위한 변수 ; 초기값은 정수형의 최소값지정
-
-		// [2] 처리
-		for (int i = 0; i < data.length; i++) {
-			index[data[i]]++; // COUNT
-		}
-		for (int i = 0; i < index.length; i++) {
-			System.out.println("lee index[i] : " + index[i]);
-			if (max < index[i]) {
-				max = index[i]; // MAX
-				mode = i; // 최빈값 : MODE
-			}
-		}
-
-		// [3] 출력
-		System.out.println("최빈값 : " + mode + " , " + max + "번"); // 3, 2번
-	}
+	
 
 	/**
 	 * 버블 정렬(Bubble Sort)은 인접한 두개의 원소를 비교하여 자리를 교환하는 방식으로 정렬 첫번째 원소부터 인접한 원소끼리 계속
