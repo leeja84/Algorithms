@@ -10,13 +10,10 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.Iterator;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.TreeSet;
 
 public class Algorithms {
@@ -844,52 +841,7 @@ public class Algorithms {
 		return result;
 	}
 
-	// https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/727/
-	public static int removeDuplicatesFromSortedArray() {
-
-		int[] nums = { 1, 1, 2, 2, 2, 3, 4, 4, 4, 5, 6, 7, 20, 30 };
-		int point = 1;
-		for (int i = 1; i < nums.length; i++) {
-			if (nums[i - 1] < nums[i]) {
-				nums[point] = nums[i];
-				point++;
-			}
-		}
-
-		for (int i = 0; i < point; i++) {
-			System.out.println("lee" + nums[i]);
-		}
-
-		return point;
-	}
-
-	// https://leetcode.com/problems/two-sum/
-	public static int[] twoSum(int target) {
-//		Given nums = [2, 7, 11, 15], target = 9,
-//		Because nums[0] + nums[1] = 2 + 7 = 9,
-//		return [0, 1].
-		int[] nums = { 1, 2, 3, 4, 5, 6, 7, 20, 30 };
-
-		HashMap<Integer, Integer> hash = new HashMap<Integer, Integer>();
-		for (int i = 0; i < nums.length; i++) {
-			int complement = target - nums[i];
-			if (hash.containsKey(complement)) {
-				return new int[] { hash.get(complement), i };
-			}
-			hash.put(nums[i], i);
-
-		}
-//
-//		Map<Integer, Integer> map = new HashMap<>();
-//		for (int i = 0; i < nums.length; i++) {
-//			int complement = target - nums[i];
-//			if (map.containsKey(complement)) {
-//				return new int[] { map.get(complement), i };
-//			}
-//			map.put(nums[i], i);
-//		}
-		return null;
-	}
+	
 
 	public static long getMonday(int year, String firstMonth) {
 		java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy.MM.dd");

@@ -25,10 +25,11 @@ Following the same example above, the final result would be:
  */
 public class DeltaEncoding {
 	public static void main(String[] args) {
-		delta();
-	}
-	public static void delta() {
 		List<Integer> list = Arrays.asList(25626, 25757, 24367, 24267, 16, 100, 2, 7277);
+		System.out.println(delta(list));
+	}
+	public static List<Integer> delta(List<Integer> list) {
+//		List<Integer> list = Arrays.asList(25626, 25757, 24367, 24267, 16, 100, 2, 7277);
 		int def = 0;
 		int token = -128;
 		List<Integer> result = new ArrayList<>();
@@ -44,8 +45,7 @@ public class DeltaEncoding {
 			}
 		}
 
-		for (int i = 0; i < result.size(); i++) {
-			System.out.println("lee : " + result.get(i));
-		}
+		
+		return result;
 	}
 }
