@@ -3,6 +3,22 @@ public static void main(String[] args) {
 	heapSort(arr);
 	printArray(arr);
 }
+
+/* 최대힙 삽입 */
+public static void insert_max_heap(int[] arr,int x){
+	int length = arr.length - 1;
+	arr[++length] = x; // 힙 크기를 하나 증가하고 마지막 노드에 x를 넣는다.
+
+	for (int i=length; i>1; i/=2) {
+  	// 마지막 노드가 자신의 부모 노드보다 크면 swap
+  	if (arr[i/2] < arr[i]) {
+    	swap(i/2, i);
+  	} else {
+    	break;
+  	}
+}
+}
+
 private static void heapSort(int[] arr) {
 	// TODO Auto-generated method stub
 	int length = arr.length - 1;
