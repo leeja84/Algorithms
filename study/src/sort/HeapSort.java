@@ -19,6 +19,35 @@ public static void insert_max_heap(int[] arr,int x){
 }
 }
 
+/* 최대힙 삭제 */
+int delete_max_heap(int[] arr){
+	int heapsize = arr.length - 1;
+if (heapSize == 0) // 배열이 빈 경우
+  return 0;
+
+int item = arr[1]; // 루트 노드의 값을 저장한다.
+arr[1] = arr[heapSize]; // 마지막 노드의 값을 루트 노드에 둔다.
+arr[heapSize--] = 0; // 힙 크기를 하나 줄이고 마지막 노드를 0으로 초기화한다.
+
+for (int i=1; i*2<=heapSize;) {
+  // 마지막 노드가 왼쪽 노드와 오른쪽 노드보다 크면 반복문을 나간다.
+  if (arr[i] > arr[i*2] && arr[i] > arr[i*2+1]) {
+    break;
+  }
+  // 왼쪽 노드가 더 큰 경우, 왼쪽 노드와 마지막 노드를 swap
+  else if (arr[i*2] > arr[i*2+1]) {
+    swap(i, i*2);
+    i = i*2;
+  }
+  // 오른쪽 노드가 더 큰 경우, 오른쪽 노드와 마지막 노드를 swap
+  else {
+    swap(i, i*2+1);
+    i = i*2+1;
+  }
+}
+return item;
+}
+
 private static void heapSort(int[] arr) {
 	// TODO Auto-generated method stub
 	int length = arr.length - 1;
